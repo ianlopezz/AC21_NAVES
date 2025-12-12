@@ -4,6 +4,8 @@ static void Main(string[] args)
     NavesEstelares [] naves = NavesEstelares (5);
     bool salir = false;
     
+    
+    
      while (!salir)
     {
         Console.WriteLine("¿Qué desea hacer?");
@@ -17,15 +19,31 @@ static void Main(string[] args)
         switch (opcion)
         {
             case 1: // CREAR
-                Console.WriteLine("Has elegido la opción 1");
-                break;
+            Console.WriteLine("Has elegido la opción 1");
+
+            string [] Nombres = {"HALCONMILNEARIO", "CAZAESTELAR", "SUPERDESTRUCTOR", "YWING", "XWING"};
+            Random generador = new Random (0,4);
+            int indiceAleatorio = generador.Next(nombres.Length);
+            string nombreElegido = Nombres[indiceAleatorio];
+               
+            Random Numero = new Random();
+            int NumeroAleatorio = generador.Next(10-99);
+            int numeroElegido = Numero[NumeroAleatorio];
+            Console.WriteLine("Tu nave es" + nombreElegido + "-" + numeroElegido);
+            break;
 
             case 2: // CAMBIAR NOMBRE
                 Console.WriteLine("Has elegido la opción 2");
+Console.WriteLine($"el nombre de tu nave es {nombreElegido}, quieres cambiar el nombre?");
+if (true)
+{
+    
+}
                 break;
 
             case 3: // LISTAR NAVES
                 Console.WriteLine("Has elegido la opción 3");
+
                 break;
             case 4: // BORRARLAS
                 Console.WriteLine("Has elegido salir de la aplicación");
@@ -38,5 +56,6 @@ static void Main(string[] args)
     }
 
 }
+
 
 
