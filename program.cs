@@ -70,7 +70,6 @@ while (!salir)
         case 3: // LISTAR NAVES
             Console.WriteLine("Has elegido la opción 3");
             Console.WriteLine($"=== NAVES FABRICADAS ===");
-            contadorNaves++;
 
             if (contadorNaves > 0)
             {
@@ -89,16 +88,15 @@ while (!salir)
 
         case 4: // BORRAR UNA O TODAS
             Console.WriteLine("Quieres borrar tu nave, (s/n)?");
-            string respuesta2 = Console.ReadLine() ?? "";
-            if (respuesta2 == "s" || respuesta2 == "S")
+            bool respuestaBorrar = ObtenerRespuestaSiNo();
+            if (respuestaBorrar)
             {
                 // Lógica de eliminación
                 Array.Clear(naves, 0, naves.Length); // Esto borra todas las naves
                 contadorNaves = 0; // Reinicia el contador
                 Console.WriteLine("Todas las naves han sido eliminadas.");
-
             }
-            else if (respuesta2 == "n" || respuesta2 == "N")
+            else
             {
                 // No borrar
             }
@@ -106,11 +104,29 @@ while (!salir)
 
         case 5: // SALIR
             Console.WriteLine("Has elegido salir de la aplicación");
+            if (salir)
+            {
+                Console.WriteLine("Programa finalizado.");
+            }
             salir = true;
             break;
 
         default: // SALIR
             Console.WriteLine("Elige una opcion entre 1 y 4");
+            
             break;
     }
+    
+}
+
+
+static bool ObtenerRespuestaSiNo()
+{
+    string respuesta = Console.ReadLine()?.ToLower() ?? "";
+    while (respuesta != "s" && respuesta != "n")
+    {
+        Console.WriteLine("Por favor, ingresa 's' para sí o 'n' para no.");
+        respuesta = Console.ReadLine()?.ToLower() ?? "";
+    }
+    return respuesta == "s";
 }
