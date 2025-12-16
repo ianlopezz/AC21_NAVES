@@ -110,11 +110,6 @@ while (!salir)
             }
             salir = true;
             break;
-
-        default: // SALIR
-            Console.WriteLine("Elige una opcion entre 1 y 4");
-            
-            break;
     }
     
 }
